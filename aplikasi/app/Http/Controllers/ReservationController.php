@@ -133,10 +133,11 @@ class ReservationController extends Controller
                 'visit_time' => 'Waktu ini sudah direservasi oleh ' . $existingReservation->full_name . '. Silakan pilih waktu lain.'
             ]);
         }
-
+	
         // Handle upload using Laravel Storage (more secure)
         $file = $request->file('request_letter');
-        $newName = 'surat_' . Str::random(16) . '.pdf';
+	$ext = $file->getClientOriginalExtension();
+        $newName = 'surat_' . Str::random(16) .".". $ext;
 
         // Store file in storage/app/public/uploads directory
         $path = $file->storeAs('uploads', $newName, 'public');

@@ -92,9 +92,9 @@
                             @endif
                     </td>
                     <td class="px-3 py-2">
-                        @if ($r->request_letter)
+			@if($r->request_letter)
                         <a class="text-blue-600 underline" href="{{ Storage::url($r->request_letter) }}"
-                            target="_blank">Lihat PDF</a>
+                            target="_blank">Lihat Berkas</a>
                         @else
                         <span class="text-red-600">Belum Upload</span>
                         @endif
